@@ -1,6 +1,22 @@
 # This file is the entry point to configure your own HTTP routes.
 # Files in the routes/ subdirectory configure the routes for your dependencies.
 
-#index:
-#    path: /
-#    defaults: { _controller: 'App\Controller\DefaultController::index' }
+post_subscription:
+  path: /subscription
+  controller: App\Controller\PostSubscription::processAction
+  methods: POST
+
+get_subscription:
+  path: /subscription/{id}
+  controller: App\Controller\GetSubscription::processAction
+  methods: GET
+
+put_subscription:
+  path: /subscription/{id}
+  controller: App\Controller\PutSubscription::processAction
+  methods: PUT
+
+delete_subscription:
+  path: /subscription/{id}
+  controller: App\Controller\DeleteSubscription::processAction
+  methods: DELETE

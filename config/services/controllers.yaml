@@ -1,0 +1,20 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Controller\PostSubscription:
+    arguments:
+      $requestHandler: '@App\Presentation\Request\RequestHandler',
+      $requestAdapter: '@App\Presentation\Adapter\RequestAdapter',
+      $entityManager: '@Doctrine\ORM\EntityManagerInterface',
+      $responseHandler: '@App\Presentation\Response\ResponseHandler',
+    tags: ['controller.service_arguments']
+
+  App\Controller\GetSubscription:
+    arguments:
+      $requestHandler: '@App\Presentation\Request\RequestHandler',
+      $requestAdapter: '@App\Presentation\Adapter\RequestAdapter',
+      $entityManager: '@Doctrine\Persistence\ManagerRegistry',
+      $responseHandler: '@App\Presentation\Response\ResponseHandler',
+    tags: ['controller.service_arguments']
