@@ -37,7 +37,8 @@ class SubscriptionRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('s')
             ->select('s')
-            ->where('s.id = :id')
+            ->innerJoin('App\Entity\Contact', 'c')
+            ->where('c.id = :id')
             ->setParameter('id', $id)
             ->setMaxResults(1)
             ->getQuery()
